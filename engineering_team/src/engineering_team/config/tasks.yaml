@@ -46,7 +46,7 @@ test_task:
     The output should be valid Python code that can be directly saved to a file and executed.
   agent: test_engineer
   context:
-    - code_task
+    - frontend_task
   output_file: output/test_{module_name}
 
 
