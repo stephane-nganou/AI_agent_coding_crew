@@ -5,23 +5,23 @@ design_task:
     {requirement} \n
 
     Deliverables (use FileWriterTool to write all files): 
-    1) docs/architecture/design.md — System overview, diagrams (textual), module boundaries, flows (auth, checkout), error handling, logging strategy.\n
-    2) docs/architecture/data-model.md — ERD (textual), entity list w/ attributes & relationships.\n
-    3) docs/api/openapi.yaml — REST API spec: auth, users, products, inventory, media, orders, reservations, reports, contact, blog, events, testimonials, social.\n
-    4) docs/plan/taskplan.md — Explicit task breakdown and file ownership: Backend Dev 1, Backend Dev 2, Frontend Dev 1, Frontend Dev 2, Testers, DevOps.\n
-    5) docs/ux/navigation.md — Routes, components, layouts, responsive behavior, loading/error states.\n
-    6) docs/security/security.md — JWT/OAuth2 flows, password policies, roles/permissions, CORS, secrets, CSRF, session management.\n
-    7) docs/dev/env.md — Local dev instructions, environment variables, ports, service URLs.\n
+    1) output/docs/architecture/design.md — System overview, diagrams (textual), module boundaries, flows (auth, checkout), error handling, logging strategy.\n
+    2) output/docs/architecture/data-model.md — ERD (textual), entity list w/ attributes & relationships.\n
+    3) output/docs/api/openapi.yaml — REST API spec: auth, users, products, inventory, media, orders, reservations, reports, contact, blog, events, testimonials, social.\n
+    4) output/docs/plan/taskplan.md — Explicit task breakdown and file ownership: Backend Dev 1, Backend Dev 2, Frontend Dev 1, Frontend Dev 2, Testers, DevOps.\n
+    5) output/docs/ux/navigation.md — Routes, components, layouts, responsive behavior, loading/error states.\n
+    6) output/docs/security/security.md — JWT/OAuth2 flows, password policies, roles/permissions, CORS, secrets, CSRF, session management.\n
+    7) output/docs/dev/env.md — Local dev instructions, environment variables, ports, service URLs.\n
     8) Define explicit backend and frontend directory structures and filenames each engineer must implement.\n
     9) Include logging and exception handling guidelines and examples for both backend and frontend.\n
     Make sure to be concrete: list exact file paths and class/component names to be created by each engineer.
   expected_output: >
-    Complete design and task plan documentation written to docs/ with explicit paths and module assignments.
+    Complete design and task plan documentation written to output/ with explicit paths and module assignments.
   agent: engineering_lead
 
 backend_core_task:
   description: >
-    Implement the backend foundation per the design. Follow strictly docs/architecture/design.md and docs/plan/taskplan.md. 
+    Implement the backend foundation per the design. Follow strictly output/docs/architecture/design.md and output/docs/plan/taskplan.md. 
     Do not write unit tests. Ensure excellent comments, docstrings, logging, and exception handling. Use FileWriterTool to create files.\n
     Scope for Backend Dev 1 (exact paths):
 
@@ -37,7 +37,7 @@ backend_core_task:
 
 backend_features_task:
   description: >
-    Implement business features per the design. Follow strictly docs/architecture/design.md and docs/plan/taskplan.md. 
+    Implement business features per the design. Follow strictly output/docs/architecture/design.md and output/docs/plan/taskplan.md. 
     Do not write unit tests. Ensure excellent comments, docstrings, logging, and exception handling. Use FileWriterTool.\n
     Scope for Backend Dev 2 (exact paths):
   expected_output: >
@@ -50,7 +50,7 @@ backend_features_task:
 frontend_shell_task:
   description: >
     Create the Angular 20 application shell and public-facing pages using standalone components. 
-    Follow strictly docs/ux/navigation.md and docs/plan/taskplan.md. Do not write unit tests. 
+    Follow strictly output/docs/ux/navigation.md and output/docs/plan/taskplan.md. Do not write unit tests. 
     Ensure comments, docstrings, logging, and error handling. Use FileWriterTool.\n
     Scope for Frontend Dev 1 (exact paths):\n
 
@@ -67,7 +67,7 @@ frontend_shell_task:
 frontend_features_task:
   description: >
     Implement feature pages and admin UI in Angular 20 using standalone components. 
-    Follow strictly docs/ux/navigation.md and docs/plan/taskplan.md. Do not write unit tests. 
+    Follow strictly output/docs/ux/navigation.md and output/docs/plan/taskplan.md. Do not write unit tests. 
     Ensure comments, docstrings, logging, and error handling. Use FileWriterTool.\n
     Scope for Frontend Dev 2 (exact paths):\n
 
