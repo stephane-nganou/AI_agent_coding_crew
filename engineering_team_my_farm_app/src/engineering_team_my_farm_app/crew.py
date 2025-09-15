@@ -121,27 +121,27 @@ class EngineeringTeamMyFarmApp():
         )
 
     @task
-    def backend_core_task(self) -> Task:
+    def backend_task_dev_1(self) -> Task:
         return Task(
-            config=self.tasks_config['backend_core_task']
+            config=self.tasks_config['backend_task_dev_1']
         )
 
     @task
-    def backend_features_task(self) -> Task:
+    def backend_task_dev_2(self) -> Task:
         return Task(
-            config=self.tasks_config['backend_features_task']
+            config=self.tasks_config['backend_task_dev_2']
         )
 
     @task
-    def frontend_shell_task(self) -> Task:
+    def frontend_task_dev_1(self) -> Task:
         return Task(
-            config=self.tasks_config['frontend_shell_task']
+            config=self.tasks_config['frontend_task_dev_1']
         )
 
     @task
-    def frontend_features_task(self) -> Task:
+    def frontend_task_dev_2(self) -> Task:
         return Task(
-            config=self.tasks_config['frontend_features_task']
+            config=self.tasks_config['frontend_task_dev_2']
         )
 
     @task
