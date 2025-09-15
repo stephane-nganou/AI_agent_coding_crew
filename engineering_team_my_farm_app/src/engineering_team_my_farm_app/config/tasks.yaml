@@ -1,17 +1,140 @@
-research_task:
+design_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
-  expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    Produce the full technical design and task plan for the Farm Web Application.
+    The requirement is this:
+    {requirement} \n
 
-reporting_task:
-  description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Deliverables (use FileWriterTool to write all files): 
+    1) docs/architecture/design.md — System overview, diagrams (textual), module boundaries, flows (auth, checkout), error handling, logging strategy.\n
+    2) docs/architecture/data-model.md — ERD (textual), entity list w/ attributes & relationships.\n
+    3) docs/api/openapi.yaml — REST API spec: auth, users, products, inventory, media, orders, reservations, reports, contact, blog, events, testimonials, social.\n
+    4) docs/plan/taskplan.md — Explicit task breakdown and file ownership: Backend Dev 1, Backend Dev 2, Frontend Dev 1, Frontend Dev 2, Testers, DevOps.\n
+    5) docs/ux/navigation.md — Routes, components, layouts, responsive behavior, loading/error states.\n
+    6) docs/security/security.md — JWT/OAuth2 flows, password policies, roles/permissions, CORS, secrets, CSRF, session management.\n
+    7) docs/dev/env.md — Local dev instructions, environment variables, ports, service URLs.\n
+    8) Define explicit backend and frontend directory structures and filenames each engineer must implement.\n
+    9) Include logging and exception handling guidelines and examples for both backend and frontend.\n
+    Make sure to be concrete: list exact file paths and class/component names to be created by each engineer.
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    Complete design and task plan documentation written to docs/ with explicit paths and module assignments.
+  agent: engineering_lead
+
+backend_core_task:
+  description: >
+    Implement the backend foundation per the design. Follow strictly docs/architecture/design.md and docs/plan/taskplan.md. 
+    Do not write unit tests. Ensure excellent comments, docstrings, logging, and exception handling. Use FileWriterTool to create files.\n
+    Scope for Backend Dev 1 (exact paths):
+
+    Acceptance:\n
+    - Application builds with `mvn -q -DskipTests package`.\n
+    - Security config supports JWT and Google OAuth2. On OAuth2 success, redirect to FE with JWT as a query param (documented in design).\n
+    - Entities, repositories, and core services compile and are logically cohesive.
+  expected_output: >
+    Backend foundation and security implemented with files created in backend/ as specified.
+  agent: backend_dev_1
+  context:
+    - design_task
+
+backend_features_task:
+  description: >
+    Implement business features per the design. Follow strictly docs/architecture/design.md and docs/plan/taskplan.md. 
+    Do not write unit tests. Ensure excellent comments, docstrings, logging, and exception handling. Use FileWriterTool.\n
+    Scope for Backend Dev 2 (exact paths):
+  expected_output: >
+    Backend business features implemented with files created in backend/ as specified.
+  agent: backend_dev_2
+  context:
+    - design_task
+    - backend_core_task
+
+frontend_shell_task:
+  description: >
+    Create the Angular 20 application shell and public-facing pages using standalone components. 
+    Follow strictly docs/ux/navigation.md and docs/plan/taskplan.md. Do not write unit tests. 
+    Ensure comments, docstrings, logging, and error handling. Use FileWriterTool.\n
+    Scope for Frontend Dev 1 (exact paths):\n
+
+    Acceptance:\n
+    - App boots and navigates across public routes.\n
+    - OAuth2 redirect handling: if JWT in URL after Google flow, store and use it.\n
+    - Error and auth interceptors functional.
+  expected_output:
+    Angular application and public pages created under frontend/ with routes, interceptors, and services.
+  agent: frontend_dev_1
+  context:
+    - design_task
+
+frontend_features_task:
+  description: >
+    Implement feature pages and admin UI in Angular 20 using standalone components. 
+    Follow strictly docs/ux/navigation.md and docs/plan/taskplan.md. Do not write unit tests. 
+    Ensure comments, docstrings, logging, and error handling. Use FileWriterTool.\n
+    Scope for Frontend Dev 2 (exact paths):\n
+
+    Acceptance:\n
+    - Catalog to checkout flow works with PayPal sandbox integration.\n
+    - Admin pages call secure endpoints (guarded) and handle CRUD with optimistic UI and error states.\n
+    - Reports page downloads CSV files.
+  expected_output:
+    Angular features and admin UI implemented under frontend/ as specified.
+  agent: frontend_dev_2
+  context:
+    - design_task
+    - frontend_shell_task
+    - backend_core_task
+    - backend_features_task
+
+backend_tests_task:
+  description: >
+    Develop unit and integration tests for the backend. Use JUnit 5, Spring Boot Test, and Testcontainers for PostgreSQL. 
+    Mock PayPal with WireMock or stubs. Use FileWriterTool.\n
+    Scope for Backend Tester (exact paths):\n
+
+    Add meaningful test data and cover critical happy paths, validation failures, and error handling. Generate coverage reports.\n
+    Acceptance:\n
+    - `mvn -q test` runs successfully with containers starting automatically.\n
+    - Adequate coverage for critical flows (auth, order, payment, inventory updates, CSV export).
+  expected_output:
+    Comprehensive backend unit and integration tests written under backend/src/test/ with containers.
+  agent: backend_tester
+  context:
+    - design_task
+    - backend_core_task
+    - backend_features_task
+
+frontend_tests_task:
+  description: >
+    Develop unit and integration tests for the frontend using Jasmine/Karma and Playwright for integration. Use FileWriterTool.\n
+    Scope for Frontend Tester (exact paths):\n
+
+    Use spies/mocks for HTTP calls where appropriate; for integration, mock backend endpoints or use a dev server flag. Ensure accessibility checks for key pages.\n
+    Acceptance:\n
+    - `npm test` (unit) passes with meaningful coverage.\n
+    - `npx playwright test` (integration) passes core flows.
+  expected_output:
+    Comprehensive frontend unit and integration tests created under frontend/ with Karma/Jasmine and Playwright.
+  agent: frontend_tester
+  context:
+    - design_task
+    - frontend_shell_task
+    - frontend_features_task
+
+devops_task:
+  description: >
+    Containerize the application and create CI/CD pipeline artifacts. Use FileWriterTool.\n
+    Scope for DevOps Engineer (exact paths):\n
+    Acceptance:\n
+        - `docker-compose up` brings up postgres, mailhog, backend, frontend; app reachable on localhost with proxying.\n
+        - Jenkinsfile logically sound and references standard tools (Maven, Node, Docker).
+  expected_output:
+    Dockerfiles, docker-compose, Jenkinsfile, nginx config, and README created under backend/, frontend/, and ops/.
+  agent: devops_engineer
+  context:
+    - design_task
+    - backend_core_task
+    - backend_features_task
+    - frontend_shell_task
+    - frontend_features_task
+
+
+

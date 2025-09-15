@@ -1,6 +1,7 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
+from crewai_tools import FileWriterTool, DirectoryReadTool
 from typing import List
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
@@ -10,55 +11,167 @@ from typing import List
 class EngineeringTeamMyFarmApp():
     """EngineeringTeamMyFarmApp crew"""
 
+    file_writer = FileWriterTool(root_dir=".")
+    dir_reader = DirectoryReadTool()
+
     agents: List[BaseAgent]
     tasks: List[Task]
 
-    # Learn more about YAML configuration files here:
-    # Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
-    # Tasks: https://docs.crewai.com/concepts/tasks#yaml-configuration-recommended
+    @agent
+    def engineering_lead(self) -> Agent:
+        return Agent(
+            config=self.agents_config['engineering_lead'],
+            verbose=True,
+            tools=[file_writer, dir_reader],
+            allow_code_execution=True,
+            code_execution_mode="safe",
+            max_execution_time=500, 
+            max_retry_limit=3 
+        )
+
+    @agent
+    def backend_dev_1(self) -> Agent:
+        return Agent(
+            config=self.agents_config['backend_dev_1'],
+            verbose=True,
+            tools=[file_writer, dir_reader],
+            allow_code_execution=True,
+            code_execution_mode="safe",
+            max_execution_time=500, 
+            max_retry_limit=3 
+        )
+
+    @agent
+    def backend_dev_2(self) -> Agent:
+        return Agent(
+            config=self.agents_config['backend_dev_2'],
+            verbose=True,
+            tools=[file_writer, dir_reader],
+            allow_code_execution=True,
+            code_execution_mode="safe",
+            max_execution_time=500, 
+            max_retry_limit=3 
+        )
+
+    @agent
+    def frontend_dev_1(self) -> Agent:
+        return Agent(
+            config=self.agents_config['frontend_dev_1'],
+            verbose=True,
+            tools=[file_writer, dir_reader],
+            allow_code_execution=True,
+            code_execution_mode="safe",
+            max_execution_time=500, 
+            max_retry_limit=3 
+        )
     
-    # If you would like to add tools to your agents, you can learn more about it here:
-    # https://docs.crewai.com/concepts/agents#agent-tools
     @agent
-    def researcher(self) -> Agent:
+    def frontend_dev_2(self) -> Agent:
         return Agent(
-            config=self.agents_config['researcher'], # type: ignore[index]
-            verbose=True
+            config=self.agents_config['frontend_dev_2'],
+            verbose=True,
+            tools=[file_writer, dir_reader],
+            allow_code_execution=True,
+            code_execution_mode="safe",
+            max_execution_time=500, 
+            max_retry_limit=3
         )
 
     @agent
-    def reporting_analyst(self) -> Agent:
+    def frontend_tester(self) -> Agent:
         return Agent(
-            config=self.agents_config['reporting_analyst'], # type: ignore[index]
-            verbose=True
+            config=self.agents_config['frontend_tester'],
+            verbose=True,
+            tools=[file_writer, dir_reader],
+            allow_code_execution=True,
+            code_execution_mode="safe",
+            max_execution_time=500, 
+            max_retry_limit=3 
         )
 
-    # To learn more about structured task outputs,
-    # task dependencies, and task callbacks, check out the documentation:
-    # https://docs.crewai.com/concepts/tasks#overview-of-a-task
+    @agent
+    def backend_tester(self) -> Agent:
+        return Agent(
+            config=self.agents_config['backend_tester'],
+            verbose=True,
+            tools=[file_writer, dir_reader],
+            allow_code_execution=True,
+            code_execution_mode="safe",
+            max_execution_time=500, 
+            max_retry_limit=3 
+        )
+
+    @agent
+    def devops_engineer(self) -> Agent:
+        return Agent(
+            config=self.agents_config['devops_engineer'],
+            verbose=True,
+            tools=[file_writer, dir_reader],
+            allow_code_execution=True,
+            code_execution_mode="safe",
+            max_execution_time=500, 
+            max_retry_limit=3 
+        )
+
+
     @task
-    def research_task(self) -> Task:
+    def design_task(self) -> Task:
         return Task(
-            config=self.tasks_config['research_task'], # type: ignore[index]
+            config=self.tasks_config['design_task']
         )
 
     @task
-    def reporting_task(self) -> Task:
+    def backend_core_task(self) -> Task:
         return Task(
-            config=self.tasks_config['reporting_task'], # type: ignore[index]
-            output_file='report.md'
+            config=self.tasks_config['backend_core_task']
         )
+
+    @task
+    def backend_features_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['backend_features_task']
+        )
+
+    @task
+    def frontend_shell_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['frontend_shell_task']
+        )
+
+    @task
+    def frontend_features_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['frontend_features_task']
+        )
+
+    @task
+    def backend_tests_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['backend_tests_task']
+        )
+
+    @task
+    def frontend_tests_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['frontend_tests_task']
+        )
+
+    @task
+    def devops_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['devops_task']
+        )
+
+
 
     @crew
     def crew(self) -> Crew:
         """Creates the EngineeringTeamMyFarmApp crew"""
-        # To learn how to add knowledge sources to your crew, check out the documentation:
-        # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
+        
 
         return Crew(
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,
-            verbose=True,
-            # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+            verbose=True
         )
