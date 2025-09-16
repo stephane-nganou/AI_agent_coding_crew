@@ -8,7 +8,7 @@ design_task:
     1) output/docs/architecture/design.md — System overview, diagrams (textual), module boundaries, flows (auth, checkout), error handling, logging strategy.\n
     2) output/docs/architecture/data-model.md — ERD (textual), entity list w/ attributes & relationships.\n
     3) output/docs/api/openapi.yaml — REST API spec: auth, users, products, inventory, media, orders, reservations, reports, contact, blog, events, testimonials, social.\n
-    4) output/docs/plan/taskplan.md — Explicit task breakdown and file ownership: Backend Dev 1 (backend_dev_1), Backend Dev 2 (backend_dev_2), 
+    4) output/docs/plan/taskplan.md — Explicit task breakdown and file ownership for Backend Dev 1 (backend_dev_1), Backend Dev 2 (backend_dev_2), 
     Frontend Dev 1 (frontend_dev_1), Frontend Dev 2 (frontend_dev_2), Frontend Tester (frontend_tester), Backend Tester (backend_tester), DevOps (devops_engineer).\n
     5) output/docs/ux/navigation.md — Routes, components, layouts, responsive behavior, loading/error states.\n
     6) output/docs/security/security.md — JWT/OAuth2 flows, password policies, roles/permissions, CORS, secrets, CSRF, session management.\n
@@ -55,7 +55,7 @@ frontend_task_dev_1:
   description: >
     Create the Angular 20 application shell and public-facing pages using standalone components. 
     Do not write unit tests. 
-    Follow strictly output/docs/ux/navigation.md and output/docs/plan/taskplan.md. for the Frontend Dev 1 (frontend_dev_1) \n
+    Follow strictly output/docs/ux/navigation.md and output/docs/plan/taskplan.md for the Frontend Dev 1 (frontend_dev_1) \n
     Ensure comments, docstrings, logging, and error handling. Use FileWriterTool to create files. \n
     Scope for Frontend Dev 1 (exact paths):\n
 
@@ -95,7 +95,7 @@ backend_tests_task:
     Develop unit and integration tests for the backend. Use JUnit 5, Spring Boot Test, and Testcontainers for PostgreSQL. 
     Mock PayPal with WireMock or stubs. Use FileWriterTool to create files. \n
     Add meaningful test data and cover critical happy paths, validation failures, and error handling. Generate coverage reports.\n
-    follow strictly output/docs/architecture/design.md and output/docs/plan/taskplan.md for the Backend Tester (backend_tester). \n
+    Follow strictly output/docs/architecture/design.md and output/docs/plan/taskplan.md for the Backend Tester (backend_tester). \n
     Acceptance:\n
     - `mvn -q test` runs successfully with containers starting automatically.\n
     - Adequate coverage for critical flows (auth, order, payment, inventory updates, CSV export).
