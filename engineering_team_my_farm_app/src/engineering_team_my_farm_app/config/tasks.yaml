@@ -19,7 +19,7 @@ design_task:
     You have in your team 2 senior backend developers ('backend_dev_1' and 'backend_dev_2'), 2 senior Angular frontend developer ('frontend_dev_1' and 'frontend_dev_2'),
     1 senior backend tester ('backend_tester'), 1 senior frontend test ('frontend_tester') and 1 senior DevOps engineer ('devops_engineer').
   expected_output: >
-    Complete design and task plan documentation written to output/ with detailed design document including module breakdowns, 
+    Complete design and task plan documentation written to 'output/' with detailed design document including module breakdowns, 
     function/method signatures, and a task assignment plan for each developer, tester and devops enginneer.
   agent: engineering_lead
 
@@ -27,14 +27,14 @@ backend_task_dev_1:
   description: >
     Implement the backend foundation per the design. \n
     Do not write unit tests. Ensure excellent comments, docstrings, logging, and exception handling. Use FileWriterTool to create files. \n
-    You follow and review strictly  the detailed design and task plan from the Engineering Lead in (output/docs/architecture/design.md and output/docs/plan/taskplan.md). \n 
+    You follow and review strictly  the detailed design and task plan from the Engineering Lead in 'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md'. \n 
     Identify and develop only the backend modules assigned to 'backend_dev_1'. Write Java 21 code with the latest Spring Boot 3.x. \n
 
     Acceptance:\n
     - Application builds with `mvn -q -DskipTests package`.\n
     - Entities, repositories, and core services compile and are logically cohesive.
   expected_output: >
-    Java code files for the assigned backend modules created in output/backend as specified. \n
+    Java code files for the assigned backend modules created in 'output/backend' as specified. \n
 
     IMPORTANT: Output ONLY the raw Java code without any markdown formatting, code block delimiters, or backticks.
     The output should be valid Java code that can be directly executed.
@@ -47,7 +47,7 @@ backend_task_dev_2:
     Implement business features per the design. \n
     Do not write unit tests. \n
     Ensure excellent comments, docstrings, logging, and exception handling. Use FileWriterTool to create files. \n
-    You follow and review strictly  the detailed design and task plan from the Engineering Lead in (output/docs/architecture/design.md and output/docs/plan/taskplan.md). \n 
+    You follow and review strictly  the detailed design and task plan from the Engineering Lead in 'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md'. \n 
     Identify and develop only the backend modules assigned to 'backend_dev_2'. Write Java 21 code with the latest Spring Boot 3.x. \n
   expected_output: >
     Java code files for the assigned backend modules created in output/backend as specified. \n
@@ -63,7 +63,7 @@ frontend_task_dev_1:
   description: >
     Do not write unit tests. \n
     Ensure comments, docstrings, logging, and error handling. Use FileWriterTool to create files. \n
-    You follow and review strictly  the detailed design and task plan from the Engineering Lead in (output/docs/architecture/design.md and output/docs/plan/taskplan.md). \n 
+    You follow and review strictly  the detailed design and task plan from the Engineering Lead in 'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md'. \n 
     Identify and develop only the tasks assigned to 'frontend_dev_1'. \n
     Write Angular 20 code with standalone components.
   expected_output:
@@ -80,7 +80,7 @@ frontend_task_dev_2:
     Implement feature pages and admin UI in Angular 20 using standalone components. \n
     Do not write unit tests. \n
     Ensure comments, docstrings, logging, and error handling. Use FileWriterTool to create files. \n
-    You follow and review strictly  the detailed design and task plan from the Engineering Lead in (output/docs/architecture/design.md and output/docs/plan/taskplan.md). \n 
+    You follow and review strictly  the detailed design and task plan from the Engineering Lead in 'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md'. \n 
     Identify and develop tasks assigned to 'frontend_dev_2'. \n
     Write Angular 20 code with standalone components.
   expected_output:
@@ -100,7 +100,7 @@ backend_tests_task:
     Develop unit and integration tests for the backend located in 'output/backend'. Use JUnit 5, Spring Boot Test, and Testcontainers for PostgreSQL. 
     Mock PayPal with WireMock or stubs. Use FileWriterTool to create files. \n
     Generate coverage reports.\n
-    You follow and review strictly  the detailed design and task plan from the Engineering Lead in (output/docs/architecture/design.md and output/docs/plan/taskplan.md). \n
+    You follow and review strictly  the detailed design and task plan from the Engineering Lead in 'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md'. \n
     Identify and develop tasks assigned to 'backend_tester'. \n
     Acceptance:\n
     - `mvn -q test` runs successfully with containers starting automatically.\n
@@ -119,14 +119,14 @@ backend_tests_task:
 frontend_tests_task:
   description: >
     Review the frontend code from both frontend developers. Develop unit and integration tests for all the frontend code using appropriate testing frameworks like Jasmine/Karma. \n
-    the frontend project is located under output/frontend. \n
-    You follow and review strictly  the detailed design and task plan from the Engineering Lead in (output/docs/architecture/design.md and output/docs/plan/taskplan.md). \n
+    the frontend project is located under 'output/frontend'. \n
+    You follow and review strictly  the detailed design and task plan from the Engineering Lead in 'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md'. \n
     Identify and develop tasks assigned to 'frontend_tester'. \n
     
     Acceptance:\n
     - `npm test` (unit) passes with meaningful coverage.\n
   expected_output:
-    Comprehensive frontend unit and integration tests created under output/frontend/test. \n
+    Comprehensive frontend unit and integration tests created under 'output/frontend/test'. \n
 
     IMPORTANT: Output ONLY the raw code without any markdown formatting, code block delimiters, or backticks.
     The output should be valid Angular code that can be directly executed.
@@ -139,14 +139,14 @@ frontend_tests_task:
 devops_task:
   description: >
     Containerize the application and create CI/CD pipeline artifacts. Use FileWriterTool to create files. \n
-    You follow and review strictly  the detailed design and task plan from the Engineering Lead in (output/docs/architecture/design.md and output/docs/plan/taskplan.md). \n
+    You follow and review strictly  the detailed design and task plan from the Engineering Lead in 'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md'. \n
     Identify and develop tasks assigned to 'devops_engineer'. \n
     
     Acceptance:\n
         - `docker-compose up` brings up all needed containers reachable on localhost.
         - Jenkinsfile logically sound and references standard tools (Maven, Node, Docker). \n
   expected_output:
-    Dockerfiles, docker-compose, Jenkinsfile, nginx config, and README created under output/backend/, output/frontend/, in output/ops/.
+    Dockerfiles, docker-compose, Jenkinsfile, nginx config, and README created under 'output/backend/', 'output/frontend/', in 'output/ops/'.
 
     IMPORTANT: Output ONLY the raw code without any markdown formatting, code block delimiters, or backticks.
     The output should be valid code that can be directly executed.
