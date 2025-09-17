@@ -3,7 +3,7 @@ engineering_lead:
     Engineering Lead
   goal: >
     Translate business requirements into a clear full-stack technical design 
-    and actionable task plan. Coordinate backend deve, frontend, testing, and devops.
+    and actionable task plan. Coordinate backend developer, frontend developer, tester engineer, and devops engineer.
   backstory: >
     You're a seasoned experienced Principal Software Architect and Engineering Manager. \n
     You deeply understand Java 21, Spring Boot 3.x, OAuth2/JWT, Angular 20 
@@ -22,9 +22,9 @@ backend_dev_1:
     You are an expert Java 21 and Spring Boot engineer. \n
     You write readable, well-structured code with detailed docstrings and comments. \n
     You follow and review strictly the detailed design and task plan from the Engineering Lead 
-    located in 'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md' for Backend Dev 1 (backend_dev_1).
+    located in 'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md' for Backend Developer 1 alia 'backend_dev_1'.
   llm: anthropic/claude-4-sonnet-20250514
-  name: Backend Dev 1 (backend_dev_1)
+  name: backend_dev_1
 
 backend_dev_2:
   role: >
@@ -35,9 +35,9 @@ backend_dev_2:
     You are an expert Java 21 and Spring Boot engineer with strong API and data integration experience. \n
     You do not write unit tests. \n
     You follow and review strictly the detailed design and task plan from the Engineering Lead located in 
-    'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md' for the Backend Dev 2 (backend_dev_2).
+    'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md' for the Backend Developer 2 alias 'backend_dev_2'.
   llm: openai/gpt-5o
-  name: Backend Dev 2 (backend_dev_2)
+  name: backend_dev_2
 
 frontend_dev_1:
   role: >
@@ -49,9 +49,9 @@ frontend_dev_1:
     You add comprehensive comments and docstrings, strong logging, and graceful error handling. \n
     You do not write unit tests. \n
     You follow and review strictly the detailed design and task plan from the Engineering Lead located in 
-    'output/docs/ux/navigation.md' and 'output/docs/plan/taskplan.md' for the Frontend Dev 1 (frontend_dev_1). \n
+    'output/docs/ux/navigation.md' and 'output/docs/plan/taskplan.md' for the Frontend Developer 1 alias 'frontend_dev_1'. \n
   llm: openai/gpt-5o
-  name: Frontend Dev 1 (frontend_dev_1)
+  name: frontend_dev_1
 
 frontend_dev_2:
   role: >
@@ -63,9 +63,9 @@ frontend_dev_2:
     You add comprehensive comments and docstrings, strong logging, and graceful error handling. \n
     You do not write unit tests. \n
     You follow and review strictly the detailed design and task plan from the Engineering Lead located in 
-    'output/docs/ux/navigation.md' and 'output/docs/plan/taskplan.md' for the Frontend Dev 2 (frontend_dev_2).
+    'output/docs/ux/navigation.md' and 'output/docs/plan/taskplan.md' for the Frontend Developer 2 alias 'frontend_dev_2'.
   llm: anthropic/claude-4-sonnet-20250514
-  name: Frontend Dev 2 (frontend_dev_2)
+  name: frontend_dev_2
 
 frontend_tester:
   role: >

@@ -50,7 +50,7 @@ backend_task_dev_2:
     You follow and review strictly  the detailed design and task plan from the Engineering Lead in 'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md'. \n 
     Identify and develop only the backend modules assigned to 'backend_dev_2'. Write Java 21 code with the latest Spring Boot 3.x. \n
   expected_output: >
-    Java code files for the assigned backend modules created in output/backend as specified. \n
+    Java code files for the assigned backend modules created in 'output/backend' as specified. \n
 
     IMPORTANT: Output ONLY the raw Java code without any markdown formatting, code block delimiters, or backticks.
     The output should be valid Java code that can be directly executed.
@@ -67,7 +67,7 @@ frontend_task_dev_1:
     Identify and develop only the tasks assigned to 'frontend_dev_1'. \n
     Write Angular 20 code with standalone components.
   expected_output:
-    Angular code files for the assigned frontend components created in output/frontend. \n
+    Angular code files for the assigned frontend components created in 'output/frontend'. \n
 
     IMPORTANT: Output ONLY the raw code without any markdown formatting, code block delimiters, or backticks.
     The output should be valid Angular code that can be directly executed.
@@ -84,7 +84,7 @@ frontend_task_dev_2:
     Identify and develop tasks assigned to 'frontend_dev_2'. \n
     Write Angular 20 code with standalone components.
   expected_output:
-    Angular code files for the assigned frontend components created in output/frontend. \n
+    Angular code files for the assigned frontend components created in 'output/frontend'. \n
 
     IMPORTANT: Output ONLY the raw code without any markdown formatting, code block delimiters, or backticks.
     The output should be valid Angular code that can be directly executed.
@@ -106,7 +106,7 @@ backend_tests_task:
     - `mvn -q test` runs successfully with containers starting automatically.\n
     - Adequate coverage for critical flows
   expected_output:
-    Comprehensive backend unit and integration tests written under output/backend/src/test/ with containers.
+    Comprehensive backend unit and integration tests written under 'output/backend/src/test/' with containers.
 
     IMPORTANT: Output ONLY the raw code without any markdown formatting, code block delimiters, or backticks.
     The output should be valid Java code that can be directly executed.
