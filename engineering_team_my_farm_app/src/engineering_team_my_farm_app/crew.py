@@ -24,10 +24,10 @@ class EngineeringTeamMyFarmApp():
             config=self.agents_config['engineering_lead'],
             verbose=True,
             tools=[file_writer, dir_reader],
-            allow_code_execution=True,
-            code_execution_mode="safe",
-            max_execution_time=500, 
-            max_retry_limit=3 
+            #allow_code_execution=False,
+            #code_execution_mode="safe",
+            #max_execution_time=500, 
+            #max_retry_limit=1
         )
 
     @agent
