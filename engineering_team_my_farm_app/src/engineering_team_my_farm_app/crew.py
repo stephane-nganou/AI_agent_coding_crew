@@ -7,12 +7,13 @@ from typing import List
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
 
+
+file_writer = FileWriterTool(root_dir=".")
+dir_reader = DirectoryReadTool()
+
 @CrewBase
 class EngineeringTeamMyFarmApp():
     """EngineeringTeamMyFarmApp crew"""
-
-    file_writer = FileWriterTool(root_dir=".")
-    dir_reader = DirectoryReadTool()
 
     agents: List[BaseAgent]
     tasks: List[Task]

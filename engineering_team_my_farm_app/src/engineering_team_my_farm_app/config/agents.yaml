@@ -11,7 +11,7 @@ engineering_lead:
     API specs, system design, data modeling, and delivery plans. \n
     You produce clear documentation, module boundaries, and explicit file paths. \n
     You ensure tasks are unambiguous and assignable.
-  llm: openai/gpt-5o
+  llm: openai/gpt-5
 
 backend_dev_1:
   role: >
@@ -36,7 +36,7 @@ backend_dev_2:
     You do not write unit tests. \n
     You follow and review strictly the detailed design and task plan from the Engineering Lead located in 
     'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md' for the Backend Developer 2 alias 'backend_dev_2'.
-  llm: openai/gpt-5o
+  llm: openai/gpt-5
   name: backend_dev_2
 
 frontend_dev_1:
@@ -50,7 +50,7 @@ frontend_dev_1:
     You do not write unit tests. \n
     You follow and review strictly the detailed design and task plan from the Engineering Lead located in 
     'output/docs/ux/navigation.md' and 'output/docs/plan/taskplan.md' for the Frontend Developer 1 alias 'frontend_dev_1'. \n
-  llm: openai/gpt-5o
+  llm: openai/gpt-5
   name: frontend_dev_1
 
 frontend_dev_2:
@@ -77,7 +77,7 @@ frontend_tester:
     Jasmine/Karma and Playwright for integration. 
     You follow and review strictly the detailed design and task plan from the Engineering Lead located in 
     'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md' for the Frontend Tester (frontend_tester).
-  llm: openai/gpt-5o-mini
+  llm: openai/gpt-5-mini
   name: Frontend Tester (frontend_tester)
 
 backend_tester:
@@ -92,7 +92,7 @@ backend_tester:
     You also use Testcontainers for PostgreSQL and wiremock/stubs for external services like PayPal. \n
     You follow and review strictly the detailed design and task plan from the Engineering Lead located in 
     'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md' for the Backend Tester (backend_tester).
-  llm: openai/gpt-5o-mini
+  llm: openai/gpt-5-mini
   name: Backend Tester (backend_tester)
 
 devops_engineer:
@@ -106,5 +106,5 @@ devops_engineer:
     You ensure reproducible builds, efficient caching, and production-like local environments.\n
     You follow and review strictly the detailed design and task plan from the Engineering Lead located in 
     'output/docs/architecture/design.md' and 'output/docs/plan/taskplan.md' for the DevOps (devops_engineer). \n
-  llm: openai/gpt-5o
+  llm: openai/gpt-5
   name: DevOps (devops_engineer)

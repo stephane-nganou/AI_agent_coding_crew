@@ -1,8 +1,8 @@
 design_task:
   description: >
     Produce the full technical design and task plan for the Farm Web Application using best pratices. \n
-    The requirement is this: \n
-    {requirement} \n \n
+    The requirements are this: \n
+    {requirements} \n \n
 
     Deliverables (use FileWriterTool to write all files): \n
     1) output/docs/architecture/design.md — System overview, diagrams (textual), module boundaries, flows (auth, checkout), error handling, logging strategy.\n
