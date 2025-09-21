@@ -1,7 +1,10 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
+from crewai_tools import FileWriterTool
 from typing import List
+
+file_writer = FileWriterTool(root_dir=".")
 
 @CrewBase
 class EngineeringTeam():
@@ -14,9 +17,10 @@ class EngineeringTeam():
     def engineering_lead(self) -> Agent:
         return Agent(
             config=self.agents_config['engineering_lead'],
-            verbose=True
+            verbose=True,
+            tools=[file_writer],
         )
-
+    """
     @agent
     def backend_engineer(self) -> Agent:
         return Agent(
@@ -45,14 +49,16 @@ class EngineeringTeam():
             max_execution_time=240,
             max_retries=5
         )
+ 
+    """
 
-    
     @task
     def design_task(self) -> Task:
         return Task(
             config=self.tasks_config['design_task'],
         )
-
+        
+    """
     @task
     def code_task(self) -> Task:
         return Task(
@@ -70,7 +76,7 @@ class EngineeringTeam():
         return Task(
             config=self.tasks_config['test_task'],
         )
-
+    """
     @crew
     def crew(self) -> Crew:
         """Creates the EngineeringTeam crew"""
