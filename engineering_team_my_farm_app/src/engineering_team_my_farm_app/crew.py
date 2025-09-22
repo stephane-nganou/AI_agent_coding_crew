@@ -18,6 +18,7 @@ class EngineeringTeamMyFarmApp():
     agents: List[BaseAgent]
     tasks: List[Task]
 
+    """
     @agent
     def engineering_lead(self) -> Agent:
         return Agent(
@@ -29,7 +30,7 @@ class EngineeringTeamMyFarmApp():
             #max_execution_time=500, 
             #max_retry_limit=1
         )
-
+    """
     @agent
     def backend_dev_1(self) -> Agent:
         return Agent(
@@ -42,6 +43,7 @@ class EngineeringTeamMyFarmApp():
             max_retry_limit=3 
         )
 
+    """
     @agent
     def backend_dev_2(self) -> Agent:
         return Agent(
@@ -114,19 +116,20 @@ class EngineeringTeamMyFarmApp():
             max_retry_limit=3 
         )
 
-
+    
     @task
     def design_task(self) -> Task:
         return Task(
             config=self.tasks_config['design_task']
         )
 
+    """
     @task
     def backend_task_dev_1(self) -> Task:
         return Task(
             config=self.tasks_config['backend_task_dev_1']
         )
-
+    """
     @task
     def backend_task_dev_2(self) -> Task:
         return Task(
@@ -162,7 +165,7 @@ class EngineeringTeamMyFarmApp():
         return Task(
             config=self.tasks_config['devops_task']
         )
-
+    """
 
 
     @crew

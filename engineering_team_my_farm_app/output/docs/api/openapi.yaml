@@ -1,0 +1,45 @@
+openapi: 3.0.1
+info:
+  title: Farm Web Application API
+  version: 1.0.0
+paths:
+  /auth/login:
+    post:
+      summary: User login
+      responses:
+        '200':
+          description: Successful login
+        '401':
+          description: Invalid credentials
+  /users:
+    get:
+      summary: List users
+      responses:
+        '200':
+          description: A list of users
+  /products:
+    get:
+      summary: List products
+      responses:
+        '200':
+          description: A list of products
+  /orders:
+    post:
+      summary: Place an order
+      responses:
+        '201':
+          description: Order placed successfully
+        '400':
+          description: Invalid order details
+  /reservations:
+    post:
+      summary: Create a reservation
+      responses:
+        '201':
+          description: Reservation created successfully
+  /reports:
+    get:
+      summary: Generate sales report
+      responses:
+        '200':
+          description: A CSV report of sales
