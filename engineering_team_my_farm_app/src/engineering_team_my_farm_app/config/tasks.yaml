@@ -28,24 +28,28 @@
 backend_task_dev_1:
   description: >
     Implement the backend foundation per the design. \n
-    Do not write unit tests. Ensure excellent comments, docstrings, logging, and exception handling. Use FileWriterTool and DirectoryReadTool to create all the needed files, 
-    and others to accomplish your tasks. \n
-    You follow and review strictly the detailed design, task plan, data-model, security, api description from the Engineering Lead located in 
+    Do not write unit tests. Ensure excellent well-structured code, comments, docstrings, logging, and exception handling. \n
+    Use FileWriterTool and DirectoryReadTool to create all the needed files, and others to accomplish your tasks. \n
+    You follow and review strictly the requirements, detailed design, task plan, data-model, security, api description from the Engineering Lead located in 
     'output/docs/architecture/design.md', 'output/docs/plan/taskplan.md', 'output/docs/architecture/data-model.md', 'output/docs/security/security.md', 
     'output/docs/api/openapi.yaml'. \n 
     Identify and develop only the backend modules and all the tasks assigned to 'backend_dev_1'. \n
     backend_dev_1 has one or more tasks assigned to him in task plan. Make sure to execute all of them. 
-    Write Java 21 code with the latest Spring Boot 3.4 and use maven as dependency manager. \n
+    Write Java 21 code with Spring Boot 3.4 and use maven as dependency manager. \n
+    Here are the requirements """ {requirements} """
+
     Use best pratices. \n
 
     Acceptance:\n
     - all the tasks assigned to 'backend_dev_1' are executed. \n
+    - You leave no 'To Do', but implement all needed code logik. \n
     - Application builds with `mvn -q -DskipTests package`.\n
     - Entities, repositories, and core services compile and are logically cohesive.
   expected_output: >
     Java code files for the assigned backend modules created in 'output/backend' as specified. \n
     IMPORTANT - Output ONLY the raw Java code without any markdown formatting, code block delimiters, or backticks.
-    The output should be valid Java code that can be directly executed.
+    The output should be valid Java code that can be directly executed. \n
+    You leave no 'To Do', but implement all needed code logik.
   agent: backend_dev_1
 #  context:
 #    - design_task
