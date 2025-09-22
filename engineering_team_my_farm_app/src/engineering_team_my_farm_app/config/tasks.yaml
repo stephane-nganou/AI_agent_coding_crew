@@ -33,7 +33,9 @@ backend_task_dev_1:
     You follow and review strictly the detailed design, task plan, data-model, security, api description from the Engineering Lead located in 
     'output/docs/architecture/design.md', 'output/docs/plan/taskplan.md', 'output/docs/architecture/data-model.md', 'output/docs/security/security.md', 
     'output/docs/api/openapi.yaml'. \n 
-    Identify and develop only the backend modules and all the tasks assigned to 'backend_dev_1'. Write Java 21 code with the latest Spring Boot 3.4 and use maven as dependency manager. \n
+    Identify and develop only the backend modules and all the tasks assigned to 'backend_dev_1'. \n
+    backend_dev_1 has one or more tasks assigned to him in task plan. Make sure to execute all of them. 
+    Write Java 21 code with the latest Spring Boot 3.4 and use maven as dependency manager. \n
     Use best pratices. \n
 
     Acceptance:\n
